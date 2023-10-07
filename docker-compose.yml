@@ -1,16 +1,10 @@
 version: '3'
 services:
-  strapi:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "1337:1337"
-    depends_on:
-      - postgres
   postgres:
     image: postgres:latest
     environment:
       POSTGRES_DB: strapi_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
