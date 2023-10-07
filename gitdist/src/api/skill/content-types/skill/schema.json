@@ -1,0 +1,33 @@
+{
+    "kind": "collectionType",
+    "collectionName": "skills",
+    "info": {
+        "singularName": "skill",
+        "pluralName": "skills",
+        "displayName": "skills",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name_tech": {
+            "type": "string",
+            "required": true
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "url": {
+            "type": "uid",
+            "targetField": "name_tech",
+            "required": true
+        }
+    }
+}
