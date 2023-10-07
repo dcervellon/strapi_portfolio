@@ -1,20 +1,21 @@
-# Use the official Node.js runtime as a parent image
+# Utiliza una imagen base de Node.js
 FROM node:18
 
-# Set the working directory in the container
-WORKDIR /app
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the container
+# Copia los archivos necesarios al contenedor
 COPY package*.json ./
+COPY yarn.lock ./
 
-# Install project dependencies
-RUN npm install
+# Instala las dependencias del proyecto
+RUN yarn install
 
-# Copy the rest of the Strapi app source code to the container
+# Copia el resto de los archivos al contenedor
 COPY . .
 
-# Expose the port that Strapi will run on
+# Expone el puerto en el que Strapi se ejecutará
 EXPOSE 1337
 
-# Define the command to run when the container starts
-CMD ["npm", "start"]
+# Inicia la aplicación Strapi
+CMD ["yarn", "develop"]
